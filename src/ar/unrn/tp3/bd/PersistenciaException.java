@@ -1,6 +1,6 @@
 package ar.unrn.tp3.bd;
 
-public class PersistenciaException extends Exception {
+public class PersistenciaException extends RuntimeException {
 	public PersistenciaException() {
 		super("No se puedo persistir");
 	}

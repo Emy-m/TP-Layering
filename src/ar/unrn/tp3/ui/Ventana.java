@@ -19,10 +19,10 @@ public class Ventana extends JFrame {
 	private JTextField nombre;
 	private JTextField telefono;
 	private JTextField region;
-	private CatalogoDeParticipantes dbConn;
+	private CatalogoDeParticipantes catalogo;
 	
 	public Ventana(CatalogoDeParticipantes persistencia) {
-		this.dbConn = persistencia;
+		this.catalogo = persistencia;
 		setupUIComponents();
 	}
 	
@@ -68,7 +68,7 @@ public class Ventana extends JFrame {
 
 	private void accionBotonCargar() {
 		try {
-			dbConn.agregarParticipante(nombre.getText(), telefono.getText(), region.getText());
+			catalogo.agregarParticipante(nombre.getText(), telefono.getText(), region.getText());
 			JOptionPane.showMessageDialog(this, "Exito al guardar");
 			reiniciarCampos();
 		} catch (Exception e1) {
