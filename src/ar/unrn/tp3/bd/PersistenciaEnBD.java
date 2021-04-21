@@ -25,8 +25,8 @@ public class PersistenciaEnBD implements CatalogoDeParticipantes {
 			st.setString(2, participante.devolverTelefono());
 			st.setString(3, participante.devolverRegion());
 			st.executeUpdate();
-		} catch (SQLException e) {
-			throw new PersistenciaException();
+		} catch (SQLException exception) {
+			throw new PersistenciaException("No se pudo conectar." + exception.getMessage());
 		} finally {
 			try {
 				st.close();
