@@ -13,7 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import ar.unrn.tp3.bd.PersistenciaException;
 import ar.unrn.tp3.modelo.CatalogoDeParticipantes;
+import ar.unrn.tp3.modelo.DatosInvalidosParticipanteException;
 
 public class Ventana extends JFrame {
 	private JTextField nombre;
@@ -71,7 +73,7 @@ public class Ventana extends JFrame {
 			dbConn.agregarParticipante(nombre.getText(), telefono.getText(), region.getText());
 			JOptionPane.showMessageDialog(this, "Exito al guardar");
 			reiniciarCampos();
-		} catch (Exception e1) {
+		} catch (PersistenciaException | DatosInvalidosParticipanteException e1) {
 			JOptionPane.showMessageDialog(this, e1.getMessage());
 		}
 	}
